@@ -1,0 +1,9 @@
+{
+  "Authors": "Authors include Punyo_Punyo",
+  "Version": "00000000-0000-0000-0000-000000000000",
+  "ComponentId": {
+    "Guid": "867598c9-66ff-4815-b53a-ac863f6c8b7d",
+    "Name": "Punyo_ForceButtonPanel_AllDestroy"
+  },
+  "Description": "This mod adds 'Destroy All' Button on your fleet map when you select multiple forces."
+}
