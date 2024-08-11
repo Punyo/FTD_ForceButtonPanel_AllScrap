@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BrilliantSkies.Modding;
+﻿using BrilliantSkies.Modding;
 using HarmonyLib;
+using System;
 
 namespace FTD_ForceButtonPanel_AllScrap
 {

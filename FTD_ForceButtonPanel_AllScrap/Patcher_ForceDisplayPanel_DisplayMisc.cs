@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BrilliantSkies.Core.Logger;
 using BrilliantSkies.FromTheDepths.Planets.Map;
-using BrilliantSkies.Ftd.LearningMaterial;
-using UnityEngine;
-using Ftd;
 using BrilliantSkies.Ftd.Planets.Instances.Factions.Fleets.Forces;
 using BrilliantSkies.Ui.Elements;
-using BrilliantSkies.Ui.Tips;
-using HarmonyLib;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 using BrilliantSkies.Ui.Special.PopUps;
-using BrilliantSkies.Ftd;
-using BrilliantSkies.Core.Logger;
+using BrilliantSkies.Ui.Tips;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace FTD_ForceButtonPanel_AllScrap
 {
@@ -24,7 +15,6 @@ namespace FTD_ForceButtonPanel_AllScrap
     {
         private static UiDef FORCE_KILL_MULTIPLE = new UiDef("killdesignmultiple", new Guid("fea38e46-8d20-46bf-bd6b-e0715c9d3f94")
             , new ToolTip("Scrap <color=red>these forces</color> and return 100% of all materials. This will destroy them completely", 200f));
-        private static Type Applicability_type;
         public static void Postfix(ForceButtonPanel __instance)
         {
             if (__instance.ForceCount > 1)
@@ -74,7 +64,6 @@ namespace FTD_ForceButtonPanel_AllScrap
 
         private static void DisplayButtonNew(Applicability available, Applicability currentState, UiDef def, Action<List<Force>> fnAll, Action<Force> fnSingle, ForceButtonPanel instance)
         {
-           // AdvLogger.Log(LogPriority.Info, def._tooltipId, LogOptions.None);
             if (available != Applicability.None)
             {
                 if (currentState == Applicability.All)
