@@ -4,4 +4,4 @@ This mod adds 'Scrap All' Button on your fleet map when you select multiple forc
 
 Compatible FtD version : 4.0
 
-![undefined - Imgur](https://github.com/user-attachments/assets/3fbf1212-0d83-49a5-904d-96ec4403a6cd)
+[![](https://steamuserimages-a.akamaihd.net/ugc/2494516750404386783/E3518160F08B211EC545B48395F0F2E7A7DB0DDA/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false)](https://steamuserimages-a.akamaihd.net/ugc/2494516750404386783/E3518160F08B211EC545B48395F0F2E7A7DB0DDA/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false)
