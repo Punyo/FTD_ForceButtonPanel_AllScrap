@@ -15,6 +15,8 @@ namespace FTD_ForceButtonPanel_AllScrap
     {
         private static UiDef FORCE_KILL_MULTIPLE = new UiDef("killdesignmultiple", new Guid("fea38e46-8d20-46bf-bd6b-e0715c9d3f94")
             , new ToolTip("Scrap <color=red>these forces</color> and return 100% of all materials. This will destroy them completely", 200f));
+        private static UiDef FORCE_RECYCLE_MULTIPLE = new UiDef("recycledesignmultiple", new Guid("5001aba7-3615-49e6-9e18-e45bc0313a03")
+    , new ToolTip("Scrap <color=red>these forces</color> and return 100% of all materials- this will turn forces into dead blueprints, not completely destroy them", 200f));
         public static void Postfix(ForceButtonPanel __instance)
         {
             if (__instance.ForceCount > 1)
@@ -27,6 +29,35 @@ namespace FTD_ForceButtonPanel_AllScrap
                     }
                 });
                 GUILayout.BeginHorizontal(Array.Empty<GUILayoutOption>());
+                DisplayButtonNew(Applicability.All, Applicability.None, FORCE_RECYCLE_MULTIPLE,
+                       delegate (List<Force> fp)
+                       {
+                           string question = string.Format("Are you sure you want to scrap {0} and return them to dead blueprints?", fp.Count);
+                           GuiPopUp.Instance.Add(new PopupConfirmation("", question, (bool b) =>
+                           {
+                               if (b)
+                               {
+                                   foreach (var force in fp)
+                                   {
+                                       if (fp != null)
+                                       {
+                                           if (force.State == enumForceState.InPlay)
+                                           {
+                                               ForceScrappingSync.Instance.ScrapInPlayAndMakeDeadBlueprint(force, force.FactionId);
+                                           }
+                                           else if (force.State == enumForceState.OutOfPlay)
+                                           {
+                                               ForceScrappingSync.Instance._ScrapOutOfPlayAndMakeDeadBlueprint(force, force.FactionId);
+                                           }
+                                       }
+                                   }
+                               }
+                           }));
+                       },
+                       delegate (Force fp)
+                       {
+
+                       }, __instance);
                 DisplayButtonNew(Applicability.All, Applicability.None, FORCE_KILL_MULTIPLE,
                         delegate (List<Force> fp)
                         {
@@ -56,8 +87,6 @@ namespace FTD_ForceButtonPanel_AllScrap
                         {
 
                         }, __instance);
-
-
                 GUILayout.EndHorizontal();
             }
         }
