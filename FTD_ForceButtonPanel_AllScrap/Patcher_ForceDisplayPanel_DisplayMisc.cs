@@ -115,7 +115,7 @@ namespace FTD_ForceButtonPanel_AllScrap
                 {
                     def.Height *= 0.75f;
                 }
-                if (def.DisplayButton(null) > InputType.None)
+                if (def.DisplayButton(null).IsClick())
                 {
                     if (fnAll != null)
                     {
